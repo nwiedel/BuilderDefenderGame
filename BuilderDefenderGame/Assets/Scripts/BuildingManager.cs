@@ -5,6 +5,11 @@ using UnityEngine;
 public class BuildingManager : MonoBehaviour
 {
     /// <summary>
+    /// Verweis auf das Prefa
+    /// </summary>
+    [SerializeField] private Transform pfWoodHarvester;
+
+    /// <summary>
     /// Referenz auf die MainCamera
     /// </summary>
     private Camera mainCamera;
@@ -14,11 +19,12 @@ public class BuildingManager : MonoBehaviour
         mainCamera = Camera.main;
     }
 
-    // Update is called once per frame
     private void Update()
     {
-        
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            Instantiate(pfWoodHarvester, GetMouseWorldPosition(), Quaternion.identity);
+        }
     }
 
     /// <summary>
