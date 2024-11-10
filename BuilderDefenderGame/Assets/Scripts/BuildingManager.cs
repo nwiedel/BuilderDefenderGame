@@ -41,6 +41,10 @@ public class BuildingManager : MonoBehaviour
         {
             buildingType = buildingTypeList.list[1];
         }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            buildingType = buildingTypeList.list[2];
+        }
     }
 
     /// <summary>
