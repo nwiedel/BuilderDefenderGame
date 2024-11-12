@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Klasse zur zeitabhängigen Erzeugung von Resourcen.
+/// </summary>
 public class ResourceGenerator : MonoBehaviour
 {
     private BuildingTypeSO buildingType;

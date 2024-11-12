@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+/// <summary>
+/// Resourcenabhängige Spezifikation fürdie Erzeugung.
+/// </summary>
 [Serializable]
 public class ResourceGeneratorData
 {

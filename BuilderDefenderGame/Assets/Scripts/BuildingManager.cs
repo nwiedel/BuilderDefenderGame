@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Generelle Klass, die das Bauen von gebäuden steuert.
+/// </summary>
 public class BuildingManager : MonoBehaviour
 {
     /// <summary>

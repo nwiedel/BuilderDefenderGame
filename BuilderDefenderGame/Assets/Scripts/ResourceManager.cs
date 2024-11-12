@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Managerklasse zur Erzeuung von Resourcen.
+/// </summary>
 public class ResourceManager : MonoBehaviour
 {
     /// <summary>
