@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,11 @@ public class ResourceManager : MonoBehaviour
     /// Singelton pattern
     /// </summary>
     public static ResourceManager Instance { get; private set; }
+
+    /// <summary>
+    /// Eventdefinition wenn sich ein Resourceamount ändert.
+    /// </summary>
+    public event EventHandler OnResourceAmountChanged;
 
     /// <summary>
     /// Stellt die Menge der Resourcen nach Art dar.
@@ -54,6 +60,21 @@ public class ResourceManager : MonoBehaviour
     public void AddResource(ResourceTypeSO resourceType, int amount)
     {
         resourceAmountDictionary[resourceType] += amount;
+
+        // Event wird ausgelöst, wenn sich der Resourceamount ändert!
+        // Im UI wird daraufgelauscht
+        if(OnResourceAmountChanged != null)
+        {
+            OnResourceAmountChanged(this, EventArgs.Empty);
+        }
+        // Kurzform
+        // OnResourceAmountChanged?.Invoke(this, EventArgs.Empty);
+
         TestLogResourceAmountDictionary();
+    }
+
+    public int GetResourceAmount(ResourceTypeSO resourceType)
+    {
+        return resourceAmountDictionary[resourceType];
     }
 }
