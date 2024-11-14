@@ -13,12 +13,20 @@ public class BuildingTypeSelectUI : MonoBehaviour
         BuildingTypeListSO buildingTypeList =
             Resources.Load<BuildingTypeListSO>(typeof(BuildingTypeListSO).Name);
 
+        int index = 0;
         foreach(BuildingTypeSO buildingType in buildingTypeList.list)
         {
             Transform btnTransform = Instantiate(btnTemplate, transform);
             btnTransform.gameObject.SetActive(true);
 
-            btnTransform.Find("image").GetComponent<Image>().sprite = buildingType.sprite
+            float offsetAmount = +130f;
+            btnTransform.GetComponent<RectTransform>().anchoredPosition
+                = new Vector2(offsetAmount * index, 0);
+
+            btnTransform.Find("image").GetComponent<Image>().sprite = buildingType.sprite;
+
+
+                index++;
 ;        }
     }
 }
