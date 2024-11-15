@@ -29,7 +29,6 @@ public class BuildingManager : MonoBehaviour
         Instance = this;
 
         buildingTypeList = Resources.Load<BuildingTypeListSO>(typeof(BuildingTypeListSO).Name);
-        activeBuildingType = buildingTypeList.list[0];
     }
 
     private void Start()
@@ -41,7 +40,10 @@ public class BuildingManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
-            Instantiate(activeBuildingType.prefab, GetMouseWorldPosition(), Quaternion.identity);
+            if(activeBuildingType != null)
+            {
+                Instantiate(activeBuildingType.prefab, GetMouseWorldPosition(), Quaternion.identity);
+            }
         }
 
         
@@ -62,4 +64,10 @@ public class BuildingManager : MonoBehaviour
     {
         activeBuildingType = buildingType;
     }
+
+    public BuildingTypeSO GetActiveBuildingType() 
+    {
+        return activeBuildingType;
+    }
+
 }
