@@ -25,6 +25,10 @@ public class BuildingTypeSelectUI : MonoBehaviour
 
             btnTransform.Find("image").GetComponent<Image>().sprite = buildingType.sprite;
 
+            btnTransform.GetComponent<Button>().onClick.AddListener(() =>
+            {
+                BuildingManager.Instance.SetActiveBuildingType(buildingType);
+            });
 
                 index++;
 ;        }
