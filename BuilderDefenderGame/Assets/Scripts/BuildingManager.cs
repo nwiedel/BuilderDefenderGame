@@ -40,24 +40,11 @@ public class BuildingManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
-            if(activeBuildingType != null)
+            if (activeBuildingType != null)
             {
-                Instantiate(activeBuildingType.prefab, GetMouseWorldPosition(), Quaternion.identity);
+                Instantiate(activeBuildingType.prefab, UtilsClass.GetMouseWorldPosition(), Quaternion.identity);
             }
         }
-
-        
-    }
-
-    /// <summary>
-    /// Ermittelt die Position der Mous in World-Koordinaten
-    /// </summary>
-    /// <returns>mouseWorldPosition</returns>
-    private Vector3 GetMouseWorldPosition()
-    {
-        Vector3 mouseWorldPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        mouseWorldPosition.z = 0;
-        return mouseWorldPosition;
     }
 
     public void SetActiveBuildingType(BuildingTypeSO buildingType)
